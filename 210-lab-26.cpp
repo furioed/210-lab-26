@@ -119,39 +119,30 @@ int main() {
     list<string> lst;
     set<string> st;
 
-    // Header
-    cout << left << setw(10) << "Operation"
-         << setw(10) << "Vector"
-         << setw(10) << "List"
-         << setw(10) << "Set" << endl;
+        results[r][0][0] = raceRead(vec, rawData);
+        results[r][0][1] = raceRead(lst, rawData);
+        results[r][0][2] = raceRead(st, rawData);
 
+        results[r][1][0] = raceSort(vec);
+        results[r][1][1] = raceSort(lst);
+        results[r][1][2] = raceSort(st);
 
-    // Read     
-    cout << setw(10) << "Read"
-         << setw(10) << raceRead(vec, rawData)
-         << setw(10) << raceRead(lst, rawData)
-         << setw(10) << raceRead(st, rawData) << endl;
-        
+        results[r][2][0] = raceInsert(vec, "TESTCODE");
+        results[r][2][1] = raceInsert(lst, "TESTCODE");
+        results[r][2][2] = raceInsert(st, "TESTCODE");
 
-    // Sort 
-    cout << setw(10) << "Sort"
-         << setw(10) << raceSort(vec)
-         << setw(10) << raceSort(lst)
-         << setw(10) << raceSort(st) << endl;
-    
-    // Insert 
-    cout << setw(10) << "Insert"
-         << setw(10) << raceInsert(vec, "TESTCODE")
-         << setw(10) << raceInsert(lst, "TESTCODE")
-         << setw(10) << raceInsert(st, "TESTCODE") << endl;
-        
-    // Delete
-    cout << setw(10) << "Delete"
-         << setw(10) << raceDelete(vec)
-         << setw(10) << raceDelete(lst)
-         << setw(10) << raceDelete(st) << endl;
+        results[r][3][0] = raceDelete(vec);
+        results[r][3][1] = raceDelete(lst);
+        results[r][3][2] = raceDelete(st);
 
     }
+
+cout << "Temp output for run " << r+1 << ":\n"; // Temp output for now
+cout << "Read times: "
+     << results[r][0][0] << " "
+     << results[r][0][1] << " "
+     << results[r][0][2] << endl;
+
 
     return 0;
 }
