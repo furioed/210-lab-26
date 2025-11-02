@@ -109,8 +109,12 @@ int main() {
         rawData.push_back(line);
     fin.close();
 
+    const int RUNS = 15; // Number of runs
+    const int OPS = 4; // Number of operations
+    const int STRUCTS = 3; // Number of structures
+    long long results[RUNS][OPS][STRUCTS] = {0}; // 3D array to store results of runs
 
-
+    for (int r = 0; r < RUNS; ++r) {  // Fresh containers every run
     vector<string> vec;
     list<string> lst;
     set<string> st;
@@ -146,6 +150,8 @@ int main() {
          << setw(10) << raceDelete(vec)
          << setw(10) << raceDelete(lst)
          << setw(10) << raceDelete(st) << endl;
+
+    }
 
     return 0;
 }
