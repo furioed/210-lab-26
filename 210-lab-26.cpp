@@ -136,31 +136,30 @@ int main() {
         results[r][3][1] = raceDelete(lst);
         results[r][3][2] = raceDelete(st);
 
-cout << "\nTemp output for run " << r + 1 << ":\n";
-        cout << left << setw(10) << "Operation"
-             << setw(10) << "Vector"
-             << setw(10) << "List"
-             << setw(10) << "Set" << endl;
+// Compute averages
+    long long averages[OPS][STRUCTS] = {0};
+    for (int op = 0; op < OPS; ++op) {
+        for (int st = 0; st < STRUCTS; ++st) {
+            long long sum = 0;
+            for (int r = 0; r < RUNS; ++r) {
+                sum += results[r][op][st];
+            }
+            averages[op][st] = sum / RUNS;
+        }
+    }
+cout << "\n=== Average Times After " << RUNS << " Runs (microseconds) ===\n";
+    cout << left << setw(10) << "Operation"
+         << setw(10) << "Vector"
+         << setw(10) << "List"
+         << setw(10) << "Set" << endl;
 
-        cout << setw(10) << "Read"
-             << setw(10) << results[r][0][0]
-             << setw(10) << results[r][0][1]
-             << setw(10) << results[r][0][2] << endl;
+    string opsNames[OPS] = {"Read", "Sort", "Insert", "Delete"};
 
-        cout << setw(10) << "Sort"
-             << setw(10) << results[r][1][0]
-             << setw(10) << results[r][1][1]
-             << setw(10) << results[r][1][2] << endl;
-
-        cout << setw(10) << "Insert"
-             << setw(10) << results[r][2][0]
-             << setw(10) << results[r][2][1]
-             << setw(10) << results[r][2][2] << endl;
-
-        cout << setw(10) << "Delete"
-             << setw(10) << results[r][3][0]
-             << setw(10) << results[r][3][1]
-             << setw(10) << results[r][3][2] << endl;
+    for (int op = 0; op < OPS; ++op) {
+        cout << setw(10) << opsNames[op]
+             << setw(10) << averages[op][0]
+             << setw(10) << averages[op][1]
+             << setw(10) << averages[op][2] << endl;
     }
 
     return 0;
