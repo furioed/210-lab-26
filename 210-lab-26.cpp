@@ -120,22 +120,23 @@ int main() {
     set<string> st;
 
   // Measure times and store in results
-        results[r][0][0] = raceRead(vec, rawData);
+        results[r][0][0] = raceRead(vec, rawData); // Read
         results[r][0][1] = raceRead(lst, rawData);
         results[r][0][2] = raceRead(st, rawData);
 
-        results[r][1][0] = raceSort(vec);
+        results[r][1][0] = raceSort(vec); // Sort
         results[r][1][1] = raceSort(lst);
         results[r][1][2] = raceSort(st);
 
-        results[r][2][0] = raceInsert(vec, "TESTCODE");
+        results[r][2][0] = raceInsert(vec, "TESTCODE"); // Insert
         results[r][2][1] = raceInsert(lst, "TESTCODE");
         results[r][2][2] = raceInsert(st, "TESTCODE");
 
-        results[r][3][0] = raceDelete(vec);
+        results[r][3][0] = raceDelete(vec); // Delete
         results[r][3][1] = raceDelete(lst);
         results[r][3][2] = raceDelete(st);
     }
+    
 // Compute averages
     long long averages[OPS][STRUCTS] = {0};
     for (int op = 0; op < OPS; ++op) {
@@ -147,7 +148,7 @@ int main() {
             averages[op][st] = sum / RUNS;
         }
     }
-cout << "\nNumber of simulations: " << RUNS << "\n";
+cout << "\nNumber of simulations: " << RUNS << "\n"; // Polished output
     cout << left << setw(10) << "Operation"
          << setw(10) << "Vector"
          << setw(10) << "List"
