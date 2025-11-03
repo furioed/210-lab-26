@@ -135,7 +135,7 @@ int main() {
         results[r][3][0] = raceDelete(vec);
         results[r][3][1] = raceDelete(lst);
         results[r][3][2] = raceDelete(st);
-
+    }
 // Compute averages
     long long averages[OPS][STRUCTS] = {0};
     for (int op = 0; op < OPS; ++op) {
@@ -147,7 +147,7 @@ int main() {
             averages[op][st] = sum / RUNS;
         }
     }
-cout << "\n=== Average Times After " << RUNS << " Runs (microseconds) ===\n";
+cout << "\nNumber of simulations: " << RUNS << "\n";
     cout << left << setw(10) << "Operation"
          << setw(10) << "Vector"
          << setw(10) << "List"
