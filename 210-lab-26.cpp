@@ -119,6 +119,7 @@ int main() {
     list<string> lst;
     set<string> st;
 
+  // Measure times and store in results
         results[r][0][0] = raceRead(vec, rawData);
         results[r][0][1] = raceRead(lst, rawData);
         results[r][0][2] = raceRead(st, rawData);
@@ -135,14 +136,32 @@ int main() {
         results[r][3][1] = raceDelete(lst);
         results[r][3][2] = raceDelete(st);
 
+cout << "\nTemp output for run " << r + 1 << ":\n";
+        cout << left << setw(10) << "Operation"
+             << setw(10) << "Vector"
+             << setw(10) << "List"
+             << setw(10) << "Set" << endl;
+
+        cout << setw(10) << "Read"
+             << setw(10) << results[r][0][0]
+             << setw(10) << results[r][0][1]
+             << setw(10) << results[r][0][2] << endl;
+
+        cout << setw(10) << "Sort"
+             << setw(10) << results[r][1][0]
+             << setw(10) << results[r][1][1]
+             << setw(10) << results[r][1][2] << endl;
+
+        cout << setw(10) << "Insert"
+             << setw(10) << results[r][2][0]
+             << setw(10) << results[r][2][1]
+             << setw(10) << results[r][2][2] << endl;
+
+        cout << setw(10) << "Delete"
+             << setw(10) << results[r][3][0]
+             << setw(10) << results[r][3][1]
+             << setw(10) << results[r][3][2] << endl;
     }
-
-cout << "Temp output for run " << r+1 << ":\n"; // Temp output for now
-cout << "Read times: "
-     << results[r][0][0] << " "
-     << results[r][0][1] << " "
-     << results[r][0][2] << endl;
-
 
     return 0;
 }
